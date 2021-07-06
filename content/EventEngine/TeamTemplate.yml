@@ -1,0 +1,131 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Parameters:
+  EETeamRoleArn:
+    Description: "ARN of the Team Role"
+    Type: String
+    Default: !Sub "arn:aws:iam::${AWS::AccountId}:role/TeamRole"
+  LatestAmiId:
+    Type: "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>"
+    Default: "/aws/service/ami-windows-latest/Windows_Server-2019-English-Full-Base"
+
+Resources:
+  VPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      InstanceTenancy: default
+
+  PublicSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      CidrBlock: 10.0.0.0/24
+      VpcId:
+        Ref: VPC
+      AvailabilityZone:
+        Fn::Select:
+          - 0
+          - Fn::GetAZs: ""
+      MapPublicIpOnLaunch: true
+
+  PublicSubnet1Rtb:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId:
+        Ref: VPC
+
+  PublicSubnet1RtbAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId:
+        Ref: PublicSubnet1Rtb
+      SubnetId:
+        Ref: PublicSubnet1
+
+  PublicSubnet1DefaultRoute:
+    Type: AWS::EC2::Route
+    Properties:
+      RouteTableId:
+        Ref: PublicSubnet1Rtb
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId:
+        Ref: IGW
+
+  VpcIgwAttach:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId:
+        Ref: VPC
+      InternetGatewayId:
+        Ref: IGW
+
+  IGW:
+    Type: AWS::EC2::InternetGateway
+
+  EC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: "t3.large"
+      IamInstanceProfile:
+        Ref: InstanceProfile
+      ImageId:
+        Ref: LatestAmiId
+      UserData:
+        Fn::Base64: |-
+          <powershell>
+          Invoke-WebRequest https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/windows_amd64/AmazonSSMAgentSetup.exe -OutFile c:\SSMAgent_latest.exe
+          Start-Process -FilePath c:\SSMAgent_latest.exe -ArgumentList "/S"
+          rm -Force c:\SSMAgent_latest.exe
+
+          Set-ExecutionPolicy Bypass -Scope Process -Force; 
+          [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; 
+          Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+          choco install firefox, awscli, vscode -y
+
+          $sep = [IO.Path]::PathSeparator
+          $env:PATH = '{0}{1}{2}' -f [System.Environment]::GetEnvironmentVariable('Path', 'User'), $sep, [System.Environment]::GetEnvironmentVariable('Path', 'Machine')
+          $res = @(Join-Path $env:ProgramData 'chocolatey';
+            Join-Path $env:ProgramFiles 'Amazon\AWSCLI\bin';
+            $env:PATH) -split $sep | ForEach-Object { $_.trimend('\') } | Where-Object { $_ } | Sort-Object -Unique
+          $env:PATH = $res -join $sep
+          [System.Environment]::SetEnvironmentVariable('PATH', $env:PATH, [System.EnvironmentVariableTarget]::Machine)  
+          </powershell>
+      SecurityGroupIds:
+        - Fn::GetAtt:
+            - InstanceSecurityGroup
+            - GroupId
+      SubnetId:
+        Ref: PublicSubnet1
+
+  InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles:
+        - !Select [1, !Split ["/", Ref: EETeamRoleArn]]
+
+  InstanceSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: RDP
+      SecurityGroupEgress:
+        - CidrIp: 0.0.0.0/0
+          Description: Allow all outbound traffic by default
+          IpProtocol: "-1"
+      SecurityGroupIngress:
+        - CidrIp: 0.0.0.0/0
+          Description: from 0.0.0.0/0:3389
+          FromPort: 3389
+          IpProtocol: tcp
+          ToPort: 3389
+      VpcId:
+        Ref: VPC
+
+Outputs:
+  InstanceId:
+    Description: InstanceId of the newly created EC2 instance
+    Value:
+      Ref: EC2Instance
+  PublicIP:
+    Description: Public IP address of the newly created EC2 instance
+    Value: !GetAtt EC2Instance.PublicIp

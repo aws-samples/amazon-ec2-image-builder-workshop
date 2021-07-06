@@ -1,0 +1,65 @@
+CanonifyURLs = true
+RelativeURLs = true
+defaultContentLanguage = "en"
+languageCode = "en-US"
+
+metaDataFormat = "yaml"
+theme = "learn"
+title = "EC2 Image Builder Workshop"
+
+pygmentsCodeFences = true
+pygmentsStyle = "monokai"
+sectionPagesMenu = "main"
+uglyurls = true
+
+#Ignore Event Engine folders
+ignorefiles = ["EventEngine"]
+
+[params]
+author = "Javy de Koning"
+description = "EC2 Image Builder Workshop"
+disableAssetsBusting = true
+disableBreadcrumb = false
+disableInlineCopyToClipBoard = true
+disableLanguageSwitchingButton = false
+disableNextPrev = false
+disableSearch = false
+disableShortcutsTitle = true
+themeVariant = "aws"
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
+[blackfriday]
+hrefTargetBlank = true
+plainIDAnchors = true
+
+[markup]
+defaultMarkdownHandler = "goldmark"
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
+
+[Languages]
+[Languages.en]
+languageName = "English"
+title = "EC2 Image Builder Workshop"
+weight = 1
+
+[[menu.shortcuts]]
+identifier = "gh"
+name = "<i class='fab fa-github fa-lg'></i> ec2-image-builder-samples"
+url = "https://github.com/aws-samples/amazon-ec2-image-builder-samples"
+weight = 1
+
+[[menu.shortcuts]]
+identifier = "fb"
+name = "<i class='fab fa-github fa-lg'></i> workshop (issues/PRs)"
+url = "https://github.com/aws-samples/amazon-ec2-image-builder-workshop"
+weight = 4
+
+[[menu.shortcuts]]
+identifier = "mm"
+name = "<i class='fab fa-twitter fa-lg'></i> @javydekoning"
+url = "https://twitter.com/intent/user?screen_name=javydekoning"
+weight = 5

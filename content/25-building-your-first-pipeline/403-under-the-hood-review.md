@@ -20,6 +20,6 @@ subgraph Test Component
 E
 end
 E -->F{Success?}
-F -->|Yes| G[set image 'available']
+F -->|Yes| G[Image distribution]
 F -->|No| H[stop]
 {{< /mermaid >}}

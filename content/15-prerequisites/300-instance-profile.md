@@ -11,7 +11,13 @@ Because EC2 Image Builder uses EC2 instances to created an AMI, you need to use 
 
 As a starting point, use the following IAM role policies (you must attach both policies): **EC2InstanceProfileForImageBuilder** and **AmazonSSMManagedInstanceCore**.
 
+{{% notice warning %}}
+**You can SKIP this step if you are following this workshop via an AWS Hosted Event**. At an AWS hosted event you will be given a hash to login to [Event Engine](https://dashboard.eventengine.run). An AWS account will be provided that already has the EC2 Instance Profile named `TeamRole` created for you. You can continue to [2. Concepts]({{< ref "100-image-pipeline.md">}}) if you are running this as part of an AWS event.
+{{% /notice %}}
+
 ## Create the role
+
+**If you are running through this workshop using your own (or your employers) AWS account**, follow the below steps to create a Role and Instance Profile.
 
 1. **Sign-in** to your AWS Account
 2. Go to the **[IAM Console](https://console.aws.amazon.com/iam/home#/home)**

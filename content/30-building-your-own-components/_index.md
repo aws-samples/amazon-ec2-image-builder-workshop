@@ -49,5 +49,5 @@ phases:
 
 - A Windows 2019 EC2 instance.
 - An IDE. You can use the bundled Powershell ISE or any other text editor.
-- `awstoe` [which you can download here](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-component-manager.html).
+- `awstoe` [which you can download here](https://docs.aws.amazon.com/imagebuilder/latest/userguide/toe-component-manager.html#toe-downloads).
 - An RDP client on your local machine.

@@ -22,6 +22,6 @@ Finally we need to configure our AWS infrastructure settings. While these are op
 
 4. Go ahead and **add** `c5.large`.
 
-![Infrastructure configuration](aws-infra.png)
+![Infrastructure configuration](aws-infrastructure.png)
 
 Let's move to the final step, and create a distribution configuration.

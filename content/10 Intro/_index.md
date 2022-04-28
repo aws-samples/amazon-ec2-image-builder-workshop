@@ -17,7 +17,7 @@ Welcome, this workshop is aimed at engineers planning to build their own images 
 
 Before starting this workshop you should have some knowledge of [Amazon EC2](https://aws.amazon.com/ec2/?ec2-whats-new.sort-by=item.additionalFields.postDateTime&ec2-whats-new.sort-order=desc) and [IAM roles](https://aws.amazon.com/iam/).
 
-For the ["Building your own module"]({{< ref "30-building-your-own-components/_index.md" >}} "About Us") section of this workshop, basic understanding of bash or PowerShell is recommended.
+For the ["Building your own components"]({{< ref "30-building-your-own-components/_index.md" >}} "About Us") section of this workshop, basic understanding of bash or PowerShell is recommended.
 
 ## Cost estimate
 

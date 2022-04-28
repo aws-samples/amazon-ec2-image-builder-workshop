@@ -9,16 +9,16 @@ Now that we have an understanding of the Component/Document structure, let's see
 
 1. **Navigate to** the {{% button href="https://console.aws.amazon.com/cloudwatch" %}}CloudWatch Console{{% /button %}}
 2. Click **'Log groups'**
-3. Find and Click the correct **Log Group**, it should look something like `/aws/imagebuilder/MyFirstImageBuilderPipeline*`
+3. Find and Click the correct **Log Group**, it should look something like `/aws/imagebuilder/my-first-recipe`
 
 You should find something like the below:
 
 ```log
 Info Document arn:aws:imagebuilder:eu-west-1:643223756198:component/windows-is-ready-with-password-generation-test/1.0.1/1
-Info Document arn:aws:imagebuilder:eu-west-1:643223756198:component/powershell-windows/7.0.2/1
+Info Document arn:aws:imagebuilder:eu-west-1:643223756198:component/powershell-windows/7.2.2/1
 Info Phase build
 Info Step InstallerUri
-Info Stdout: https://github.com/PowerShell/PowerShell/releases/download/v7.0.2/PowerShell-7.0.2-win-x64.msi
+Info Stdout: https://github.com/PowerShell/PowerShell/releases/download/v7.2.2/PowerShell-7.2.2-win-x64.msi
 Info Command execution completed successfully
 Info ExitCode 0
 ```
@@ -35,4 +35,4 @@ Info ExitCode 0
 The **exit code is important**! **If** commands throw a non-terminating error, the **exit code** will be `0` and **the pipeline will continue** executing.
 {{% /notice %}}
 
-![cloudwatch](cloudwatch.png)
+![cloudwatch](cloudwatchlogs.png)

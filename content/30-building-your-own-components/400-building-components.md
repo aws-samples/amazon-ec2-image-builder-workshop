@@ -19,7 +19,7 @@ We are going to create document that uses the `ExecutePowerShell` action module 
 
 1. Navigate to your `$home\Documents\` folder.
 2. Create a new folder called `ibworkshop`
-3. Enter this folder and download `awstoe` from [this page](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-component-manager.html).
+3. Enter this folder and download `awstoe` from [this page](https://docs.aws.amazon.com/imagebuilder/latest/userguide/toe-component-manager.html#toe-downloads).
 4. Print the version of `awstoe.exe`
 5. In the same folder, create a new file called `my-first-doc.yml`.
 6. Populate it with the following content:

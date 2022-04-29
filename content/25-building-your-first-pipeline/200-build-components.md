@@ -26,4 +26,5 @@ Let's add a test to make sure the instance is booting, and is able to generate a
 
 ![test-components](test-components.png)
 
-4. Finally, click **Next**
+4. Under **Storage (volumes)** ,you can optionally specify the storage device settings for your pipeline that includes: Volume Type, KMS Key, Size, sepcify whether to terminate the EBS volume on termination or not,and (IOPS and/or Throughput) depending on the volume type you choose.
+5. Finally, click **Next**

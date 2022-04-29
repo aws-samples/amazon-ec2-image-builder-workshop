@@ -18,7 +18,7 @@ An example could be:
 `arn:aws:imagebuilder:eu-west-1:aws:image/windows-server-2019-english-full-base-x86/2020.x.x`
 
 {{% notice tip %}}
-Using `x.x.x` for the version **ensures** that your pipeline always **starts from the latest image** AWS has [released](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/windows-ami-versions.html).
+Using `x.x.x` for the version **ensures** that your pipeline always **starts from the latest image** AWS has [released](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-ami-version-history.html).
 {{% /notice %}}
 
 **AWS provides updated, fully-patched Windows AMIs within five business days** of Microsoft's patch Tuesday.

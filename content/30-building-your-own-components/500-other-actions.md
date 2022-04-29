@@ -7,14 +7,15 @@ weight = 500
 
 **Action Modules**
 
-- [ExecuteBinary](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-action-modules.html#image-builder-action-modules-executebinary)
-- [ExecuteBash](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-action-modules.html#image-builder-action-modules-executebash)
-- [ExecutePowerShell](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-action-modules.html#image-builder-action-modules-executepowershell)
-- [Reboot](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-action-modules.html#image-builder-action-modules-reboot)
-- [UpdateOS](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-action-modules.html#image-builder-action-modules-updateos)
-- [S3Upload](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-action-modules.html#image-builder-action-modules-s3upload)
-- [S3Download](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-action-modules.html#image-builder-action-modules-s3download)
-- [SetRegistry](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-action-modules.html#image-builder-action-modules-setregistry)
+- [ExecuteBinary](https://docs.aws.amazon.com/imagebuilder/latest/userguide/toe-action-modules.html#action-modules-executebinary)
+- [ExecuteBash](https://docs.aws.amazon.com/imagebuilder/latest/userguide/toe-action-modules.html#action-modules-executebash)
+- [ExecutePowerShell](https://docs.aws.amazon.com/imagebuilder/latest/userguide/toe-action-modules.html#action-modules-executepowershell)
+- [Reboot](https://docs.aws.amazon.com/imagebuilder/latest/userguide/toe-action-modules.html#action-modules-reboot)
+- [SetRegistry](https://docs.aws.amazon.com/imagebuilder/latest/userguide/toe-action-modules.html#action-modules-setregistry)
+- [UpdateOS](https://docs.aws.amazon.com/imagebuilder/latest/userguide/toe-action-modules.html#action-modules-updateos)
+- [S3Upload](https://docs.aws.amazon.com/imagebuilder/latest/userguide/toe-action-modules.html#action-modules-s3upload)
+- [S3Download](https://docs.aws.amazon.com/imagebuilder/latest/userguide/toe-action-modules.html#action-modules-s3download)
+
 
 For an updated list **navigate to** the {{% button href="https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-action-modules.html" %}}Action Modules documentation{{% /button %}}
 

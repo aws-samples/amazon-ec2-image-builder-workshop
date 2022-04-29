@@ -9,11 +9,11 @@ weight = 100
 
 This will bring you to the '**Specify pipeline details**' screen.
 
-![Image Pipeline Details](image-pipeline-details.png)
+![Image Pipeline Details](pipeline-details.png)
 
 ## Step 1 Specify pipeline details.
 
-2. In the **General** section, enter a **Pipeline name**. We are going to use `my-first-pipeline`.
+2. In the **General** section, enter a **Pipeline name**. We are going to use `my-first-pipeline`. Optionally specify a **Description** for the the pipeline. **Enhanced metadata collection** is turned on by default. To ensure compatibility between components and base images, keep it turned on.
 3. In the **Build schedule** section, you can configure an interval to build your image. keep the default schedule.
 
 {{% notice note %}}

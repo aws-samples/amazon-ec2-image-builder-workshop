@@ -47,7 +47,7 @@ Y -->|Yes| Z[set image 'available']
 ## Hints
 
 1. {{%expand "Click me for Patch OS hint." %}}
-   Try the [UpdateOS](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-action-modules.html#image-builder-action-modules-updateos) action module.
+   Try the [UpdateOS](https://docs.aws.amazon.com/imagebuilder/latest/userguide/toe-action-modules.html#action-modules-updateos) action module.
    {{% /expand%}}
 2. {{%expand "Click me for Install Web-Server IIS code." %}}
 
@@ -60,7 +60,7 @@ Install-WindowsFeature Web-Server -ErrorAction stop
 {{% /expand%}}
 
 3. {{%expand "Click me for 'Download a Unicorn Image' hint." %}}
-   Try the [S3Download](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-action-modules.html#image-builder-action-modules-s3download) action module. **File source location:**
+   Try the [S3Download](https://docs.aws.amazon.com/imagebuilder/latest/userguide/toe-action-modules.html#action-modules-s3download) action module. **File source location:**
 
 ```
 s3://ee-assets-prod-us-east-1/modules/fdbebd0c9c3c488cbe1c60adcdc48655/v1/unicorn.png
@@ -91,7 +91,7 @@ C:\inetpub\wwwroot\unicorn.png
 {{% /expand%}}
 
 5. {{%expand "Click me for 'Reboot' hint." %}}
-   Try the [Reboot](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-action-modules.html#image-builder-action-modules-reboot) action module.
+   Try the [Reboot](https://docs.aws.amazon.com/imagebuilder/latest/userguide/toe-action-modules.html#action-modules-reboot) action module.
    {{% /expand%}}
 
 6. {{%expand "Click me for 'Validate IIS is installed' code." %}}

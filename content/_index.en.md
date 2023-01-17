@@ -4,8 +4,4 @@ chapter = true
 weight = 1
 +++
 
-Welcome to the EC2 Image Builder Workshop! 
-
-## Modules available in this workshop
-
-{{% children depth="3" showhidden="false" %}}
+This workshop was moved [here](https://catalog.us-east-1.prod.workshops.aws/workshops/d6c7ecdc-c75f-4ad1-910f-fdd994cc4aed/en-US/100-ec2-ib)
